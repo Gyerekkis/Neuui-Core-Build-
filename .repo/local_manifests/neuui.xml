@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Samsung Exynos A10 Device Tree, Kernel es Vendor -->
+  <project name="eunwoox/android_device_samsung_a10" path="device/samsung/a10" remote="github" revision="lineage-20.0" />
+  <project name="eunwoox/android_kernel_samsung_exynos7885" path="kernel/samsung/exynos7885" remote="github" revision="lineage-20.0" />
+  <project name="eunwoox/android_vendor_samsung_a10" path="vendor/samsung/a10" remote="github" revision="lineage-20.0" />
+</manifest>
