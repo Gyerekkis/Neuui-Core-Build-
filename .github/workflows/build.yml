@@ -10,9 +10,16 @@ jobs:
     - name: Kod letoltese
       uses: actions/checkout@v4
 
-    - name: Tarhely es Csomagok Elokeszitese
+    - name: Tarhely maximalizalasa
+      uses: easimon/maximize-build-space@master
+      with:
+        swap-size-mb: 1024
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+
+    - name: Felhos kornyezet elokeszitese
       run: |
-        sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/share/boost
         export DEBIAN_FRONTEND=noninteractive
         sudo dpkg --add-architecture i386
         sudo apt-get update -y || true
@@ -38,7 +45,7 @@ jobs:
           cp $GITHUB_WORKSPACE/.repo/local_manifests/neuui.xml .repo/local_manifests/
         fi
         
-        repo sync -c --no-clone-bundle --no-tags -j8
+        repo sync -c -j4 --force-sync --no-clone-bundle --no-tags --fail-fast
 
     - name: NeuUI Core (Android Go) Modositasok
       run: |
