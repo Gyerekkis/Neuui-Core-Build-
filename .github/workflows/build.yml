@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Kod letoltese
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Felhos kornyezet elokeszitese
       run: |
@@ -52,7 +52,7 @@ jobs:
         mka bacon -j$(nproc --all) || true
 
     - name: Kesz ROM letoltese
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: NeuUI-Core-GalaxyA10
         path: ~/neuui/out/target/product/a10/*.zip
